@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: version-b-deployment
+  labels:
+    app: my-app
+    version: b
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-app
+      version: b
+  template:
+    metadata:
+      labels:
+        app: my-app
+        version: b
+    spec:
+      containers:
+      - name: my-app
+        image: seyma1km/angency-perfect
+        volumeMounts:
+        - name: b-nginx-config-volume
+          mountPath: /etc/nginx/conf.d/default.conf
+          subPath: default.conf
+      volumes:
+      - name: b-nginx-config-volume
+        configMap:
+          name: b-nginx-config

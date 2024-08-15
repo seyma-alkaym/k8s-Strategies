@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: version-a-deployment
+  labels:
+    app: my-app
+    version: a
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-app
+      version: a
+  template:
+    metadata:
+      labels:
+        app: my-app
+        version: a
+    spec:
+      containers:
+      - name: my-app
+        image: seyma1km/oxer-html
+        volumeMounts:
+        - name: a-nginx-config-volume
+          mountPath: /etc/nginx/conf.d/default.conf
+          subPath: default.conf
+      volumes:
+      - name: a-nginx-config-volume
+        configMap:
+          name: a-nginx-config
