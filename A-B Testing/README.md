@@ -30,7 +30,7 @@ In this project, we used a ConfigMap to modify the `default.conf` file of our NG
 3. **Use ConfigMap in Deployment**:
    - The ConfigMap is used in the Kubernetes deployment as a volume. This ensures that the NGINX container uses the updated configuration to handle traffic according to the A/B Testing strategy.
 
-[Here](a-nginx-config.yaml) is an example of how the ConfigMap and volume are defined in the Kubernetes deployment.
+[Here](a-nginx-config.yaml) is an example of how the ConfigMap are defined in the Kubernetes.
 
 ## Version A and Version B Deployments
 
