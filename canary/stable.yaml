@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stable-deployment
+  labels:
+    app: stable-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: stable-app
+  template:
+    metadata:
+      labels:
+        app: stable-app
+        type: canary
+    spec:
+      containers:
+      - name: stable-app
+        image: seyma1km/spering-html 
+        ports:
+        - containerPort: 80

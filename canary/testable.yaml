@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testable-deployment
+  labels:
+    app: testable-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: testable-app
+  template:
+    metadata:
+      labels:
+        app: testable-app
+        type: canary
+    spec:
+      containers:
+      - name: testable-app
+        image: seyma1km/oxer-html
+        ports:
+        - containerPort: 80
