@@ -158,8 +158,8 @@ spec:
 
 ### How It Works
 
-- **Version A**: Traffic directed to `myapp.example.com/a` is routed to Version A of the application via `version-a-service`.
-- **Version B**: Traffic directed to `myapp.example.com/b` is routed to Version B of the application via `version-b-service`.
+- **Version A**: Traffic directed to `example.com/a` is routed to Version A of the application via `version-a-service`.
+- **Version B**: Traffic directed to `example.com/b` is routed to Version B of the application via `version-b-service`.
 
 #### Version A in Browser
 
