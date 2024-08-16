@@ -161,6 +161,44 @@ spec:
 - **Version A**: Traffic directed to `example.com/a` is routed to Version A of the application via `version-a-service`.
 - **Version B**: Traffic directed to `example.com/b` is routed to Version B of the application via `version-b-service`.
 
+### Note: Defining Host in the Hosts File
+
+To ensure that your system correctly resolves the hostname associated with your Minikube IP, you need to add an entry to your system's `hosts` file. Below are the paths to the `hosts` file for different operating systems:
+
+- **Windows**:
+
+```bash
+C:\Windows\System32\drivers\etc\hosts
+```
+
+- **Linux**:
+
+```bash
+/etc/hosts
+```
+
+- **macOS**:
+
+```bash
+/etc/hosts
+```
+
+#### Steps to Define the Host
+
+1. Open the `hosts` file with administrative or root privileges using a text editor.
+
+2. Add an entry for the Minikube IP (if you are using Minikube) or your custom Kubernetes server IP, along with the desired hostname. For example:
+
+```bash
+<Minikube_IP> <desired_hostname>
+```
+
+- Replace `<Minikube_IP>` with the IP address of your Minikube instance and `<desired_hostname>` with the hostname you want to use.
+
+3. Save the file and close the editor.
+
+By doing this, your system will correctly map the specified hostname to the Minikube IP.
+
 #### Version A in Browser
 
 ![a-version](screenshots/a-version-in-browser.PNG)
